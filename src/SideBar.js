@@ -1,7 +1,6 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
-  BellIcon,
   CogIcon,
   HomeIcon,
   LightningBoltIcon,
