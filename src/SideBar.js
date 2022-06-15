@@ -15,7 +15,7 @@ import ThemeToggle from './ThemeToggle'
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
   { name: 'Manage Rules', href: '#', icon: LightningBoltIcon, current: false },
-  { name: 'More Tools', href: '#', icon: SparklesIcon, current: false },
+  { name: 'More Tools', href: 'https://www.lambdatest.com/free-online-tools', icon: SparklesIcon, current: false },
   { name: 'Settings', href: '#', icon: CogIcon, current: false }
 ]
 
