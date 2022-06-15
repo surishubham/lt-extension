@@ -117,13 +117,13 @@ export default function DashBoard() {
     return (
 
         <div className="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-3 sm:gap-px px-50">
-            {/* <ModifyHeader /> */}
+            <ModifyHeader />
             {/* {block &&  <BlockForm />} */}
             {/* {throttle && <ThrottleForm /> } */}
             {/* <AddRemove /> */}
             {/* <RedirectionForm /> */}
             {/* <UserAgent /> */}
-            <InsertScript />
+            {/* <InsertScript /> */}
             {/* <CorsForm /> */}
             {/* <CspForm /> */}
             {actions.map((action, actionIdx) => (
