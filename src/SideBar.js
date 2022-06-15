@@ -116,9 +116,9 @@ export default function Sidebar() {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className="hidden md:flex md:w-[7.8vw] md:flex-col md:fixed md:inset-y-0">
+        <div className="hidden md:flex md:w-[7.8vw] md:flex-col md:fixed md:inset-y-0 extension_border">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex-1 flex flex-col min-h-0 bg-[#2E3D56]">
+          <div className="flex-1 flex flex-col min-h-0 bg-[#2E3D56] lt__extension_sidebar">
             <div className="flex items-center h-24 flex-shrink-0 px-4">
               <img
                 className="h-10 mx-auto w-auto brightness-0 invert"
@@ -152,7 +152,7 @@ export default function Sidebar() {
           </div>
         </div>
         <div className="md:pl-[7.8vw] flex flex-col">
-          <div className="sticky top-0 z-10 flex-shrink-0 flex h-14 bg-white shadow">
+          <div className="sticky top-0 z-10 flex-shrink-0 flex h-14 bg-white shadow lt__extension__header">
             <button
               type="button"
               className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
@@ -190,7 +190,7 @@ export default function Sidebar() {
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
 
                 </button> */}
-                {/* <ThemeToggle /> */}
+                <ThemeToggle />
 
 
                 

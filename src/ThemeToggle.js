@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react"
+import {
+    MoonIcon,
+    SunIcon
+  } from '@heroicons/react/outline'
 export default function ThemeToggle() {
 
     const [theme, setTheme] = useState("light-theme")
@@ -13,7 +17,8 @@ export default function ThemeToggle() {
 
     return (<>
         <div onClick={toggleTheme}>
-            Toggle
+        
+            {theme === "dark-theme" ? <MoonIcon className="h-6 w-6 cursor-pointer" aria-hidden="true" /> : <SunIcon className="h-6 w-6 cursor-pointer" aria-hidden="true" />}
         </div>
     </>)
 }

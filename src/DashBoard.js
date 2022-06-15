@@ -107,7 +107,7 @@ export default function DashBoard() {
     ]
     return (
 
-        <div className="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-3 sm:gap-px px-50">
+        <div className="rounded-lg bg-gray-200  overflow-hidden shadow divide-y divide-slat-2700 sm:divide-y-0 sm:grid sm:grid-cols-3 sm:gap-px px-50 lt__divider">
             {showForm === "modifyHeader" && <ModifyHeader /> }
             {showForm === "blockForm" &&  <BlockForm />}
             {showForm === "throttleForm" && <ThrottleForm /> }

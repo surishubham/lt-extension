@@ -17,5 +17,11 @@ code {
 }
 
 
-.dark-theme .bg-white, .dark-theme, .dark-theme form, .dark-theme .searchBar{background-color: #000;color: #fff;}
+.dark-theme .bg-white, .dark-theme{background-color: rgb(25 33 52);color: #fff;}
+.dark-theme form, .dark-theme form .bg-white{background-color: rgb(16 25 45);color: #fff;}
+.dark-theme .searchBar, .dark-theme input, .dark-theme select, .dark-theme textarea {background-color: #071a2c;}
+.dark-theme .lt__extension__header, .dark-theme .lt__extension_sidebar{background-color: rgb(15 23 42/.75);}
 .dark-theme p, .dark-theme h2, .dark-theme label{color: #fff;}
+.dark-theme .searchBar{color: #fff;background-color: rgb(15 23 42/.75);}
+.dark-theme .lt__divider{background-color: rgb(248 250 252/.06);}
+.dark-theme .extension_border{border-right: 1px solid; border-color: rgb(248 250 252/.06);}
