@@ -88,8 +88,8 @@ export default function BlockForm() {
                                                             className="block w-full px-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-[.8vw] h-[2.4vw]"
                                                         >
                                                             <option>URL Containing</option>
-                                                            <option>Canada</option>
-                                                            <option>Mexico</option>
+                                                            <option>.com</option>
+                                                            <option>.in</option>
                                                         </select>
                                                     </div>
                                                 </div>

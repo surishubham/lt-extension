@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 
-export default function ThrottleForm() {
+export default function CspForm() {
     const [open, setOpen] = useState(true)
 
     return (
@@ -29,9 +29,9 @@ export default function ThrottleForm() {
                                             <div className="bg-white px-4 py-6 sm:px-6">
                                                 <div className="flex items-start justify-between space-x-3">
                                                     <div className="space-y-1">
-                                                        <Dialog.Title className="text-[1.25vw] font-medium text-gray-900"> New Throttle Rule </Dialog.Title>
+                                                        <Dialog.Title className="text-[1.25vw] font-medium text-gray-900"> New Content Security Policy Rule </Dialog.Title>
                                                         <p className="text-[.91vw] text-gray-500">
-                                                        Delay HTTP request by specifying condition
+                                                            Set a custom content security policy
                                                         </p>
                                                     </div>
                                                     <div className="flex h-7 items-center">
@@ -107,8 +107,8 @@ export default function ThrottleForm() {
                                                             className="block w-full px-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-[.8vw] h-[2.4vw]"
                                                         >
                                                             <option>URL Containing</option>
-                                                            <option>Canada</option>
-                                                            <option>Mexico</option>
+                                                            <option>.com</option>
+                                                            <option>.in</option>
                                                         </select>
                                                     </div>
                                                 </div>

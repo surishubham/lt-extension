@@ -10,13 +10,15 @@ import {
     PencilIcon
 } from '@heroicons/react/outline'
 import { useState } from 'react'
-import BlockForm from './BlockForm'
-import CorsForm from './CorsForm'
-import CspForm from './CspForm'
-import ModifyHeader from './ModifyHeader'
-import RedirectionForm from './RedirectionForm'
-import ThrottleForm from './ThrottleForm'
-import UserAgent from './UserAgent'
+import AddRemove from './form/AddRemove'
+import BlockForm from './form/BlockForm'
+import CorsForm from './form/CorsForm'
+import CspForm from './form/CspForm'
+import InsertScript from './form/InsertScript'
+import ModifyHeader from './form/ModifyHeader'
+import RedirectionForm from './form/RedirectionForm'
+import ThrottleForm from './form/ThrottleForm'
+import UserAgent from './form/UserAgent'
 
 
 
@@ -29,12 +31,12 @@ function classNames(...classes) {
 export default function DashBoard() {
     const [block, setBlock] = useState(false);
     const [throttle, setThrottle] = useState(false);
-    const blockFormClick = ()=>{
+    const blockFormClick = () => {
         setBlock(true)
         setThrottle(false)
 
     }
-    const throttleFormClick = ()=>{
+    const throttleFormClick = () => {
         setBlock(true)
         setThrottle(false)
 
@@ -116,12 +118,12 @@ export default function DashBoard() {
 
         <div className="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-3 sm:gap-px px-50">
             {/* <ModifyHeader /> */}
-          {/* {block &&  <BlockForm />} */}
-        {/* {throttle && <ThrottleForm /> } */}
-
+            {/* {block &&  <BlockForm />} */}
+            {/* {throttle && <ThrottleForm /> } */}
+            {/* <AddRemove /> */}
             {/* <RedirectionForm /> */}
             {/* <UserAgent /> */}
-
+            <InsertScript />
             {/* <CorsForm /> */}
             {/* <CspForm /> */}
             {actions.map((action, actionIdx) => (

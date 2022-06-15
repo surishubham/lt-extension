@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 
-export default function UserAgent() {
+export default function ModifyHeader() {
     const [open, setOpen] = useState(true)
 
     return (
@@ -29,9 +29,9 @@ export default function UserAgent() {
                                             <div className="bg-white px-4 py-6 sm:px-6">
                                                 <div className="flex items-start justify-between space-x-3">
                                                     <div className="space-y-1">
-                                                        <Dialog.Title className="text-[1.25vw] font-medium text-gray-900"> New User Agent Rule </Dialog.Title>
+                                                        <Dialog.Title className="text-[1.25vw] font-medium text-gray-900"> New Header Rule </Dialog.Title>
                                                         <p className="text-[.91vw] text-gray-500">
-                                                        Set a custom user agent string
+                                                            Get started by filling in header name and value
                                                         </p>
                                                     </div>
                                                     <div className="flex h-7 items-center">
@@ -68,6 +68,86 @@ export default function UserAgent() {
                                                         />
                                                     </div>
                                                 </div>
+                                                <div className="space-y-1 px-4 sm:px-6 sm:py-[1vw]">
+
+                                                    <fieldset>
+                                                        <div className="flex flex-wrap">
+
+                                                            <div className='w-1/2 my-2'>
+                                                                <div className="relative flex items-center">
+                                                                    <div className="absolute flex h-5 items-center">
+                                                                        <input
+                                                                            id="privacy-private-to-project"
+                                                                            name="privacy"
+                                                                            aria-describedby="privacy-private-to-project-description"
+                                                                            type="radio"
+                                                                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                                        />
+                                                                    </div>
+                                                                    <div className="pl-7 text-[1vw]">
+                                                                        <label htmlFor="privacy-private-to-project" className="font-medium text-gray-900">
+                                                                            Request Header
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className='w-1/2 my-2'>
+                                                                <div className="relative flex items-center">
+                                                                    <div className="absolute flex h-5 items-center">
+                                                                        <input
+                                                                            id="privacy-private"
+                                                                            name="privacy"
+                                                                            aria-describedby="privacy-private-to-project-description"
+                                                                            type="radio"
+                                                                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                                        />
+                                                                    </div>
+                                                                    <div className="pl-7 text-[1vw]">
+                                                                        <label htmlFor="privacy-private" className="font-medium text-gray-900">
+                                                                            Response Header
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className='w-1/2 my-2'>
+                                                                <div className="relative flex items-center">
+                                                                    <div className="absolute flex h-5 items-center">
+                                                                        <input
+                                                                            id="privacy-private"
+                                                                            name="privacy"
+                                                                            aria-describedby="privacy-private-to-project-description"
+                                                                            type="radio"
+                                                                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                                        />
+                                                                    </div>
+                                                                    <div className="pl-7 text-[1vw]">
+                                                                        <label htmlFor="privacy-private" className="font-medium text-gray-900">
+                                                                            Add/Modify Header
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className='w-1/2 my-2'>
+                                                                <div className="relative flex items-center">
+                                                                    <div className="absolute flex h-5 items-center">
+                                                                        <input
+                                                                            id="privacy-private-to-project"
+                                                                            name="privacy"
+                                                                            aria-describedby="privacy-private-to-project-description"
+                                                                            type="radio"
+                                                                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                                        />
+                                                                    </div>
+                                                                    <div className="pl-7 text-[1vw]">
+                                                                        <label htmlFor="privacy-private-to-project" className="font-medium text-gray-900">
+                                                                            Remove Header
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
                                                 {/* Project description */}
                                                 <div className="space-y-1 px-4 sm:px-6 sm:pb-[1vw]">
                                                     <div>
@@ -75,7 +155,7 @@ export default function UserAgent() {
                                                             htmlFor="project-description"
                                                             className="block text-[1vw] font-medium text-gray-900 sm:mt-px sm:pt-2"
                                                         >
-                                                            Content Security Policy
+                                                            Header Name
                                                         </label>
                                                     </div>
                                                     <div className="sm:col-span-2">
@@ -88,6 +168,28 @@ export default function UserAgent() {
                                                     </div>
                                                 </div>
 
+
+
+
+                                                {/* Project description */}
+                                                <div className="space-y-1 px-4 sm:px-6 sm:pb-5">
+                                                    <div>
+                                                        <label
+                                                            htmlFor="project-description"
+                                                            className="block text-[1vw] font-medium text-gray-900 sm:mt-px sm:pt-2"
+                                                        >
+                                                            Header Value
+                                                        </label>
+                                                    </div>
+                                                    <div className="sm:col-span-2">
+                                                        <input
+                                                            type="text"
+                                                            name="project-description"
+                                                            id="project-description"
+                                                            className="block w-full px-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-[.8vw] h-[2.4vw]"
+                                                        />
+                                                    </div>
+                                                </div>
 
                                                 {/* Project urls */}
                                                 <div className="space-y-1 px-4 sm:px-6 sm:pb-[1vw]">
@@ -107,29 +209,9 @@ export default function UserAgent() {
                                                             className="block w-full px-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-[.8vw] h-[2.4vw]"
                                                         >
                                                             <option>URL Containing</option>
-                                                            <option>Canada</option>
-                                                            <option>Mexico</option>
+                                                            <option>.com</option>
+                                                            <option>.in</option>
                                                         </select>
-                                                    </div>
-                                                </div>
-
-                                                {/* Project description */}
-                                                <div className="space-y-1 px-4 sm:px-6 sm:pb-5">
-                                                    <div>
-                                                        <label
-                                                            htmlFor="project-description"
-                                                            className="block text-[1vw] font-medium text-gray-900 sm:mt-px sm:pt-2"
-                                                        >
-                                                            Enter Value
-                                                        </label>
-                                                    </div>
-                                                    <div className="sm:col-span-2">
-                                                        <input
-                                                            type="text"
-                                                            name="project-description"
-                                                            id="project-description"
-                                                            className="block w-full px-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-[.8vw] h-[2.4vw]"
-                                                        />
                                                     </div>
                                                 </div>
 

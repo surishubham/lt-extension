@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 
-export default function RedirectionForm() {
+export default function InsertScript() {
     const [open, setOpen] = useState(true)
 
     return (
@@ -29,9 +29,9 @@ export default function RedirectionForm() {
                                             <div className="bg-white px-4 py-6 sm:px-6">
                                                 <div className="flex items-start justify-between space-x-3">
                                                     <div className="space-y-1">
-                                                        <Dialog.Title className="text-[1.25vw] font-medium text-gray-900"> New Redirection Rule </Dialog.Title>
+                                                        <Dialog.Title className="text-[1.25vw] font-medium text-gray-900"> New Insert Script Rule </Dialog.Title>
                                                         <p className="text-[.91vw] text-gray-500">
-                                                        Redirect to another URL
+                                                            Inject Custom CSS/JS Script
                                                         </p>
                                                     </div>
                                                     <div className="flex h-7 items-center">
@@ -68,6 +68,49 @@ export default function RedirectionForm() {
                                                         />
                                                     </div>
                                                 </div>
+                                                <div className="space-y-1 px-4 sm:px-6 sm:py-[1vw]">
+
+                                                    <fieldset>
+                                                        <div className="flex flex-wrap">
+                                                            <div className='w-1/2 my-2'>
+                                                                <div className="relative flex items-center">
+                                                                    <div className="absolute flex h-5 items-center">
+                                                                        <input
+                                                                            id="privacy-private"
+                                                                            name="privacy"
+                                                                            aria-describedby="privacy-private-to-project-description"
+                                                                            type="radio"
+                                                                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                                        />
+                                                                    </div>
+                                                                    <div className="pl-7 text-[1vw]">
+                                                                        <label htmlFor="privacy-private" className="font-medium text-gray-900">
+                                                                            CSS
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className='w-1/2 my-2'>
+                                                                <div className="relative flex items-center">
+                                                                    <div className="absolute flex h-5 items-center">
+                                                                        <input
+                                                                            id="privacy-private-to-project"
+                                                                            name="privacy"
+                                                                            aria-describedby="privacy-private-to-project-description"
+                                                                            type="radio"
+                                                                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                                        />
+                                                                    </div>
+                                                                    <div className="pl-7 text-[1vw]">
+                                                                        <label htmlFor="privacy-private-to-project" className="font-medium text-gray-900">
+                                                                            JS (Coming Soon)
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
                                                 {/* Project description */}
                                                 <div className="space-y-1 px-4 sm:px-6 sm:pb-[1vw]">
                                                     <div>
@@ -75,18 +118,65 @@ export default function RedirectionForm() {
                                                             htmlFor="project-description"
                                                             className="block text-[1vw] font-medium text-gray-900 sm:mt-px sm:pt-2"
                                                         >
-                                                            Content Security Policy
+                                                            Script Content
                                                         </label>
                                                     </div>
                                                     <div className="sm:col-span-2">
-                                                        <input
-                                                            type="text"
-                                                            name="project-description"
-                                                            id="project-description"
-                                                            className="block w-full px-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-[.8vw] h-[2.4vw]"
+                                                        <textarea
+                                                            id="description"
+                                                            name="description"
+                                                            rows={6}
+                                                            className="block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                            defaultValue={''}
                                                         />
                                                     </div>
                                                 </div>
+                                                <div className="space-y-1 px-4 sm:px-6 sm:py-[1vw]">
+
+                                                    <fieldset>
+                                                        <div className="flex flex-wrap">
+                                                            <div className='w-1/2 my-2'>
+                                                                <div className="relative flex items-center">
+                                                                    <div className="absolute flex h-5 items-center">
+                                                                        <input
+                                                                            id="privacy-private"
+                                                                            name="privacy"
+                                                                            aria-describedby="privacy-private-to-project-description"
+                                                                            type="radio"
+                                                                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                                        />
+                                                                    </div>
+                                                                    <div className="pl-7 text-[1vw]">
+                                                                        <label htmlFor="privacy-private" className="font-medium text-gray-900">
+                                                                            Insert Before Page Load
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className='w-1/2 my-2'>
+                                                                <div className="relative flex items-center">
+                                                                    <div className="absolute flex h-5 items-center">
+                                                                        <input
+                                                                            id="privacy-private-to-project"
+                                                                            name="privacy"
+                                                                            aria-describedby="privacy-private-to-project-description"
+                                                                            type="radio"
+                                                                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                                        />
+                                                                    </div>
+                                                                    <div className="pl-7 text-[1vw]">
+                                                                        <label htmlFor="privacy-private-to-project" className="font-medium text-gray-900">
+                                                                            Insert After Page Load
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+
+
+
 
 
                                                 {/* Project urls */}
@@ -96,7 +186,7 @@ export default function RedirectionForm() {
                                                             htmlFor="project-description"
                                                             className="block text-[1vw] font-medium text-gray-900 sm:mt-px sm:pt-2"
                                                         >
-                                                            Applies To
+                                                           Applies To
                                                         </label>
                                                     </div>
                                                     <div className="sm:col-span-2">
@@ -107,29 +197,9 @@ export default function RedirectionForm() {
                                                             className="block w-full px-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-[.8vw] h-[2.4vw]"
                                                         >
                                                             <option>URL Containing</option>
-                                                            <option>Canada</option>
-                                                            <option>Mexico</option>
+                                                            <option>.com</option>
+                                                            <option>.in</option>
                                                         </select>
-                                                    </div>
-                                                </div>
-
-                                                {/* Project description */}
-                                                <div className="space-y-1 px-4 sm:px-6 sm:pb-5">
-                                                    <div>
-                                                        <label
-                                                            htmlFor="project-description"
-                                                            className="block text-[1vw] font-medium text-gray-900 sm:mt-px sm:pt-2"
-                                                        >
-                                                            Enter Value
-                                                        </label>
-                                                    </div>
-                                                    <div className="sm:col-span-2">
-                                                        <input
-                                                            type="text"
-                                                            name="project-description"
-                                                            id="project-description"
-                                                            className="block w-full px-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-[.8vw] h-[2.4vw]"
-                                                        />
                                                     </div>
                                                 </div>
 
