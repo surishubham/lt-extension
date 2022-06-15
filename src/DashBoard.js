@@ -29,22 +29,13 @@ function classNames(...classes) {
 
 
 export default function DashBoard() {
-    const [block, setBlock] = useState(false);
-    const [throttle, setThrottle] = useState(false);
-    const blockFormClick = () => {
-        setBlock(true)
-        setThrottle(false)
-
-    }
-    const throttleFormClick = () => {
-        setBlock(false)
-        setThrottle(true)
-
-    }
+    const [showForm, setShowForm] = useState("");
+    
     const actions = [
         {
             title: 'Modify Headers',
             description: 'Modify HTTP headers in request and response. Use this tool if you need to modify authentication tokens, remove X-Frame-Options etc.',
+            click: ()=> setShowForm("modifyHeader"),
             icon: PencilIcon,
             iconForeground: 'text-sky-700',
             iconBackground: 'bg-sky-50',
@@ -52,7 +43,7 @@ export default function DashBoard() {
         {
             title: 'Block Requests',
             description: 'Modify HTTP headers in request and response. Use this tool if you need to modify authentication tokens, remove X-Frame-Options etc.',
-            click: blockFormClick,
+            click: ()=> setShowForm("blockForm"),
             icon: BanIcon,
             iconForeground: 'text-rose-700',
             iconBackground: 'bg-rose-50',
@@ -60,7 +51,7 @@ export default function DashBoard() {
         {
             title: 'Throttle Response',
             description: 'Modify HTTP headers in request and response. Use this tool if you need to modify authentication tokens, remove X-Frame-Options etc.',
-            click: throttleFormClick,
+            click: ()=> setShowForm("throttleForm"),
             icon: ClockIcon,
             iconForeground: 'text-yellow-700',
             iconBackground: 'bg-yellow-50',
@@ -68,7 +59,7 @@ export default function DashBoard() {
         {
             title: 'Add/Remove Query Param',
             description: 'Modify HTTP headers in request and response. Use this tool if you need to modify authentication tokens, remove X-Frame-Options etc.',
-            href: '#',
+            click: ()=> setShowForm("addRemove"),
             icon: LinkIcon,
             iconForeground: 'text-[#111827]',
             iconBackground: 'bg-[#F0F9FF]'
@@ -76,7 +67,7 @@ export default function DashBoard() {
         {
             title: 'Redirect Requests',
             description: 'Modify HTTP headers in request and response. Use this tool if you need to modify authentication tokens, remove X-Frame-Options etc.',
-            href: '#',
+            click: ()=> setShowForm("redirectionForm"),
             icon: TrendingUpIcon,
             iconForeground: 'text-[#EAB308]',
             iconBackground: 'bg-yellow-50',
@@ -84,7 +75,7 @@ export default function DashBoard() {
         {
             title: 'Change User Agent',
             description: 'Modify HTTP headers in request and response. Use this tool if you need to modify authentication tokens, remove X-Frame-Options etc.',
-            href: '#',
+            click: ()=> setShowForm("userAgent"),
             icon: UsersIcon,
             iconForeground: 'text-indigo-700',
             iconBackground: 'bg-indigo-50',
@@ -92,7 +83,7 @@ export default function DashBoard() {
         {
             title: 'Insert Scripts (CSS/JS)',
             description: 'Modify HTTP headers in request and response. Use this tool if you need to modify authentication tokens, remove X-Frame-Options etc.',
-            href: '#',
+            click: ()=> setShowForm("insertScript"),
             icon: CodeIcon,
             iconForeground: 'text-[#111827]',
             iconBackground: 'bg-[#F0F9FF]'
@@ -100,7 +91,7 @@ export default function DashBoard() {
         {
             title: 'Allow CORS',
             description: 'Modify HTTP headers in request and response. Use this tool if you need to modify authentication tokens, remove X-Frame-Options etc.',
-            href: '#',
+            click: ()=> setShowForm("corsForm"),
             icon: ShareIcon,
             iconForeground: 'text-green-700',
             iconBackground: 'bg-green-50',
@@ -108,7 +99,7 @@ export default function DashBoard() {
         {
             title: 'Content Security Policy',
             description: 'Modify HTTP headers in request and response. Use this tool if you need to modify authentication tokens, remove X-Frame-Options etc.',
-            href: '#',
+            click: ()=> setShowForm("cspForm"),
             icon: ShieldCheckIcon,
             iconForeground: 'text-[#7E22CE]',
             iconBackground: 'bg-[#FAF5FF]',
@@ -117,15 +108,16 @@ export default function DashBoard() {
     return (
 
         <div className="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-3 sm:gap-px px-50">
-            {/* <ModifyHeader /> */}
-            {block &&  <BlockForm />}
-            {throttle && <ThrottleForm /> }
-            {/* <AddRemove /> */}
-            {/* <RedirectionForm /> */}
-            {/* <UserAgent /> */}
-            {/* <InsertScript /> */}
-            {/* <CorsForm /> */}
-            {/* <CspForm /> */}
+            {showForm === "modifyHeader" && <ModifyHeader /> }
+            {showForm === "blockForm" &&  <BlockForm />}
+            {showForm === "throttleForm" && <ThrottleForm /> }
+            {showForm === "addRemove" && <AddRemove />}
+            {showForm === "redirectionForm" && <RedirectionForm />}
+            {showForm === "userAgent" && <UserAgent />}
+            {showForm === "insertScript" && <InsertScript />}
+            {showForm === "corsForm" && <CorsForm />}
+            {showForm === "cspForm" && <CspForm />}
+
             {actions.map((action, actionIdx) => (
                 <div
                     key={action.title}
@@ -148,7 +140,7 @@ export default function DashBoard() {
                     </div>
                     <div className="mt-[1.6vw]">
                         <h3 className="text-[1.3vw] font-medium">
-                            <div onClick={action.click} className="cursor-pointer focus:outline-none">
+                            <div onClick={() => action.click()} className="cursor-pointer focus:outline-none">
                                 <span className="absolute inset-0" aria-hidden="true" />
                                 {action.title}
                             </div>
