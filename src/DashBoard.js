@@ -37,8 +37,8 @@ export default function DashBoard() {
 
     }
     const throttleFormClick = () => {
-        setBlock(true)
-        setThrottle(false)
+        setBlock(false)
+        setThrottle(true)
 
     }
     const actions = [
@@ -117,9 +117,9 @@ export default function DashBoard() {
     return (
 
         <div className="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-3 sm:gap-px px-50">
-            <ModifyHeader />
-            {/* {block &&  <BlockForm />} */}
-            {/* {throttle && <ThrottleForm /> } */}
+            {/* <ModifyHeader /> */}
+            {block &&  <BlockForm />}
+            {throttle && <ThrottleForm /> }
             {/* <AddRemove /> */}
             {/* <RedirectionForm /> */}
             {/* <UserAgent /> */}
@@ -131,8 +131,6 @@ export default function DashBoard() {
                     key={action.title}
                     className={classNames(
                         actionIdx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '',
-                        actionIdx === 1 ? 'sm:rounded-tr-lg' : '',
-                        actionIdx === actions.length - 2 ? 'sm:rounded-bl-lg' : '',
                         actionIdx === actions.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '',
                         'relative group bg-white px-[1vw] py-[1vw] focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
                     )}
@@ -151,7 +149,6 @@ export default function DashBoard() {
                     <div className="mt-[1.6vw]">
                         <h3 className="text-[1.3vw] font-medium">
                             <div onClick={action.click} className="cursor-pointer focus:outline-none">
-                                {/* Extend touch target to entire panel */}
                                 <span className="absolute inset-0" aria-hidden="true" />
                                 {action.title}
                             </div>
