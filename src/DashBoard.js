@@ -13,6 +13,7 @@ import { useState } from 'react'
 import BlockForm from './BlockForm'
 import CorsForm from './CorsForm'
 import CspForm from './CspForm'
+import ModifyHeader from './ModifyHeader'
 import RedirectionForm from './RedirectionForm'
 import ThrottleForm from './ThrottleForm'
 import UserAgent from './UserAgent'
@@ -26,23 +27,22 @@ function classNames(...classes) {
 
 
 export default function DashBoard() {
-    const [flag, setFlag] = useState(false);
-    const [Xyz, setXyz] = useState(false);
-    const abc = ()=>{
-        setFlag(true)
-        setXyz(false)
+    const [block, setBlock] = useState(false);
+    const [throttle, setThrottle] = useState(false);
+    const blockFormClick = ()=>{
+        setBlock(true)
+        setThrottle(false)
 
     }
-    const xyz = ()=>{
-        setXyz(true)
-        setFlag(false)
+    const throttleFormClick = ()=>{
+        setBlock(true)
+        setThrottle(false)
 
     }
     const actions = [
         {
             title: 'Modify Headers',
             description: 'Modify HTTP headers in request and response. Use this tool if you need to modify authentication tokens, remove X-Frame-Options etc.',
-            click: abc,
             icon: PencilIcon,
             iconForeground: 'text-sky-700',
             iconBackground: 'bg-sky-50',
@@ -50,7 +50,7 @@ export default function DashBoard() {
         {
             title: 'Block Requests',
             description: 'Modify HTTP headers in request and response. Use this tool if you need to modify authentication tokens, remove X-Frame-Options etc.',
-            click: xyz,
+            click: blockFormClick,
             icon: BanIcon,
             iconForeground: 'text-rose-700',
             iconBackground: 'bg-rose-50',
@@ -58,7 +58,7 @@ export default function DashBoard() {
         {
             title: 'Throttle Response',
             description: 'Modify HTTP headers in request and response. Use this tool if you need to modify authentication tokens, remove X-Frame-Options etc.',
-            href: '#',
+            click: throttleFormClick,
             icon: ClockIcon,
             iconForeground: 'text-yellow-700',
             iconBackground: 'bg-yellow-50',
@@ -115,9 +115,9 @@ export default function DashBoard() {
     return (
 
         <div className="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-3 sm:gap-px px-50">
-            
-          {flag &&  <BlockForm />}
-        {Xyz && <ThrottleForm /> }
+            {/* <ModifyHeader /> */}
+          {/* {block &&  <BlockForm />} */}
+        {/* {throttle && <ThrottleForm /> } */}
 
             {/* <RedirectionForm /> */}
             {/* <UserAgent /> */}
@@ -148,7 +148,7 @@ export default function DashBoard() {
                     </div>
                     <div className="mt-[1.6vw]">
                         <h3 className="text-[1.3vw] font-medium">
-                            <div index={action.index} onClick={action.click} className="focus:outline-none">
+                            <div onClick={action.click} className="cursor-pointer focus:outline-none">
                                 {/* Extend touch target to entire panel */}
                                 <span className="absolute inset-0" aria-hidden="true" />
                                 {action.title}
